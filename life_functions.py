@@ -53,7 +53,7 @@ def check_field(game_field: list[list[int]]) -> list[list[int]]:
 
     Arguments:
         game_field - исходная матрица
-        
+
     Return:
         field - итоговая матрица
     """
