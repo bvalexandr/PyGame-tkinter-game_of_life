@@ -6,6 +6,7 @@ class Game:
         self.width: int = width
         self.height: int = height
         self.fps: int = 60
+        self.tile_size: int = 10
         self.clock: pg.time.Clock = pg.time.Clock()
         self.screen: pg.Surface = pg.display.set_mode((self.width, self.height))
         self.exit_game = False
@@ -30,7 +31,14 @@ class Game:
         pass
 
     def draw(self):
-        pass
+        self.screen.fill((255, 255, 255))
+        # Рисуем сетку
+        line_color: pg.Color = (100, 200, 100)
+        for row in range(self.height // self.tile_size):
+            pg.draw.line(self.screen, line_color, (0, row * self.tile_size), (self.width, row * self.tile_size))
+        for col in range(self.width // self.tile_size):
+            pg.draw.line(self.screen, line_color, (col * self.tile_size, 0), (col * self.tile_size, self.height))
+        pg.display.update()
 
 if __name__ == "__main__":
     game: Game = Game()
