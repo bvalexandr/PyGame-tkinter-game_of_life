@@ -46,7 +46,7 @@ class Game:
                         pos = pg.mouse.get_pos()
                         col = int(pos[0] // self.cell_size)
                         row = int(pos[1] // self.cell_size)
-                        self.game_field[row][col] = 1
+                        self.game_field[row][col] = not self.game_field[row][col]
             if not self.stop_game:
                 ticks += 1
                 if ticks >= self.game_speed:
