@@ -24,6 +24,16 @@ class Game:
                 match event.type:
                     case pg.QUIT:
                         self.exit_game = True
+                    case pg.KEYDOWN:
+                        keys = pg.key.get_pressed()
+                        if keys[pg.K_c]:
+                            for row in self.game_field:
+                                for col in range(len(row)):
+                                    row[col] = 0
+                        if keys[pg.K_r]:
+                            for row in self.game_field:
+                                for col in range(len(row)):
+                                    row[col] = random.randint(0, 1)
             self.update()
             self.draw()
             self.clock.tick(self.fps)
